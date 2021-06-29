@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import styled, { createGlobalStyle } from "styled-components";
+import Content from "./components/Main";
+import hero from "./images/hero-desktop.jpg";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  }
+`;
+
+const Main = styled.main`
+  display: grid;
+  grid-template-columns: 5.5fr 4.5fr;
+  height: 100vh;
+`;
+
+const Image = styled.div`
+  background-image: url(${hero});
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Main>
+      <GlobalStyle />
+      <Content />
+      <Image></Image>
+    </Main>
   );
 }
 
